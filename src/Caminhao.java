@@ -27,14 +27,12 @@ public class Caminhao {
 
     public void addProdutos(Produto p) {
         setOcupacao(p.getM3());
-        switch (p.getNome()) {
-            case "luva":
-                produtosLuva.add(p);
-            case "detergente":
-                produtosDetergente.add(p);
-            case "papel higienico":
-                produtosPapelH.add(p);
-                break;
+        if (p.getNome().equals("luva")) {
+            produtosLuva.add(p);
+        } else if (p.getNome().equals("detergente")) {
+            produtosDetergente.add(p);
+        } else {
+            produtosPapelH.add(p);
         }
     }
 
@@ -49,9 +47,12 @@ public class Caminhao {
     public String mostrar() {
         String mostrar = "O caminhao de id " + id + " está com ocupação de " + getOcupacao() + "\n";
 
-        if(produtosLuva.size() > 0) mostrar += " produto: " + produtosLuva.get(0).getNome() + ", quantidade de caixas: " + produtosLuva.size() + "\n";
-        if(produtosDetergente.size() > 0) mostrar += " produto: " + produtosDetergente.get(0).getNome() + ", quantidade de caixas: " + produtosDetergente.size() + "\n";
-        if(produtosPapelH.size() > 0) mostrar += " produto: " + produtosPapelH.get(0).getNome() + ", quantidade de caixas: " + produtosPapelH.size() + "\n";
+        if (produtosLuva.size() > 0)
+            mostrar += " produto: " + " Luva " + ", quantidade de caixas: " + produtosLuva.size() + "\n";
+        if (produtosDetergente.size() > 0)
+            mostrar += " produto: " + " Detergente" + ", quantidade de caixas: " + produtosDetergente.size() + "\n";
+        if (produtosPapelH.size() > 0)
+            mostrar += " produto: " + "Papel higienico" + ", quantidade de caixas: " + produtosPapelH.size() + "\n";
 
         return mostrar;
     }
